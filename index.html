@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hotel Listings</title>
+</head>
+<body>
+
+        <h1>Welcome</h1>
+        <form>
+            <label for="title">Hotel
+                <input type="text" id="hotel" />
+            </label> <br>
+    
+            <label for="amenities">Amenities
+                <input type="text" id="amenities" />
+            </label> <br>
+            <button type="submit">submit</button>
+        </form>
+    
+    <script src="./jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('form').on('submit', function(e){
+                e.preventDefault();
+                let title = $('#hotel').val();
+                let venue = $('#amenities').val();
+                
+                console.log(hotel);
+                console.log(amenities);
+               
+                $.ajax({
+                    url: "http://localhost:3000/hotel", success: function (result) {
+                        // $("#div1").html(result);
+                        console.log(result)
+                    },
+                    method: "POST",
+                    data: {
+                        hotel,
+                        amenities,
+                    }
+                });
+            })
+            
+        });
+    </script>
+    
+</body>
+</html>
