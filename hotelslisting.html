@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>readall</title>
+  </head>
+  <body>
+    <form>
+      <button type="submit" id="submit" onclick="x(1)">submit</button>
+    </form>
+
+    <script src="./js/jquery.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("form").on("submit", function(e) {
+          e.preventDefault();
+          $.ajax({
+            method: "GET",
+            url: "http://localhost:3000/hotel",
+            success: function(result) {
+              // $("#div1").html(result);
+              for (let i = 0; i < result.length; i++) {
+                console.log(result[i].id);
+                console.log(result[i].title);
+                console.log(result[i].address);
+                console.log(result[i].price);
+                console.log(result[i].wifi);
+                console.log(result[i].bar);
+                console.log(result[i].gym);
+                console.log(result[i].pool);
+              }
+            }
+          });
+        });
+      });
+      function x(id) {
+        $.ajax({
+          method: "GET",
+          url: `http://localhost:3000/hotel/${id}`,
+          success: function(result) {
+            // $("#div1").html(result);
+            console.log(result);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

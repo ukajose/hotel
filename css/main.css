@@ -2,15 +2,29 @@
 
 @media screen and (max-width: 991px) {
     /* start of large tablet styles */
-    
+    .box{
+        width: 100%;
+        text-align:center;
+    }
+    body {
+        text-align: center;
+      }
+      
     }
     
     @media screen and (max-width: 767px) {
     /* start of medium tablet styles */
-    
+    .box{
+        width: 100%;
+        text-align:center;
+    }
     }
     
     @media screen and (max-width: 479px) {
     /* start of phone styles */
+    .box{
+        width: 100%;
+        text-align:center;
+    }
     
     }

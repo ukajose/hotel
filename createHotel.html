@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hotel Listings</title>
+    <link rel="stylesheet" href="./css/bulma.css">
+</head>
+<body>
+
+        <h1>Create a Hotel</h1>
+        <form>
+            <label for="title">Hotel Name
+                <input type="text" id="hotel" />
+            </label> <br>
+
+            <label for="title">Address
+                <input type="text" id="address" />
+            </label> <br>
+
+            <label for="title">Website
+                <input type="text" id="website" />
+            </label> <br>
+    
+            <label for="phone">phone Number
+                <input type="number" id="phone" />
+            </label> <br>
+            <label for="email">Email
+                <input type="email" id="email" />
+            </label> <br>
+            <label for="title">City
+                <input type="text" id="city" />
+            </label> <br>
+            <label for="title"> about the hotel
+            <textarea name="message"  id= "information" rows="10" cols="30">
+            short description of the hotel
+            </textarea>
+                </label> <br>
+                <label for="title">price
+                        <input type="number" id="price" />
+                    </label> <br>
+                    <label for="title">Amenities
+                            <input type="checkbox"  id="wifi" name="wifi" value="wifi"> wifi<br>
+                            <input type="checkbox" id="restaurant" name="restaurant" value="restaurant"> restaurant<br>
+                            <input type="checkbox" id= "bar" name="bar" value="bar"> bar<br>
+                            <input type="checkbox" id="gym" name="gym" value="gym"> gym<br>
+                            <input type="checkbox" id="pool" name="pool" value="pool" checked> pool<br>  
+                        </label> <br>
+                        
+            <button type="submit">submit</button>
+        </form>
+        <div id ="div1" ></div>
+    
+    <script src="./js/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('form').on('submit', function(e){
+                e.preventDefault();
+                let hotel = $('#hotel').val();
+                let address = $('#address').val();
+                let website = $('#website').val();
+                let phone = $('#phone').val();
+                let email = $('#email').val();
+                let city = $('#city').val();
+                let information = $('#information').val();
+                let price = $('#price').val();
+                let wifi = $('#wifi').val() ? "yes": "no";
+                let restaurant = $('#restaurant').val()? "yes": "no";
+                let bar = $('#bar').val()? "yes": "no";
+                let light = $('#light').val()? "yes": "no";
+                let gym = $('#gym').val()? "yes": "no";
+                let pool = $('#pool').val()? "yes": "no";
+                
+                
+               console.log(wifi);
+                //console.log(amenities);
+               
+                $.ajax({
+                    url: "http://localhost:3000/hotel", success: function (result) {
+                         $("#div1").html(result);
+                        console.log(result)
+                    },
+                    method: "POST",
+                    data: {
+                        hotel,
+                        address,
+                        website,
+                        phone,
+                        email,
+                        city,
+                        information,
+                        price,
+                        wifi,
+                        restaurant,
+                        light,
+                        bar,
+                        gym,
+                        pool
+                    }
+                });
+            })
+            
+        });
+    </script>
+    
+</body>
+</html>

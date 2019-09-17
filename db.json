@@ -1,33 +1,26 @@
 {
-    "hotel": [
-      { "id": 1, 
-        "title": "ekohotels.com", 
-        "address": "Plot 1415 Adetokunbo Ademola Street, Victoria Island, Lagos Nigeria",
-        "website":"ekohotelsnigeria.com",
-        "phone-number": "08054631105",
-        "email-address": "info@ekohotels.com",
-        "city":"Lagos",
-        "hotel-information": " has rooms decorated with pictures of prominent figures in the world. The categories of rooms at November 5 include Single Room, Standard, Deluxe and Executive. Amenities that have been provided in the rooms include: a flat screen TV with satellite reception, a refrigerator, sofas, king-sized beds, study desks, wardrobes and en-suite bathrooms.",
-        "price":"13500"
-            }
-    ],
-    "amenities":[
-        { "id": 1,
-          "wifi": "yes",
-          "restaurant": "yes",
-          "light": "yes",
-          "bar/lounge":"yes",
-          "gym":"yes",
-          "pool": "yes"
-         
-           }
-
-    ],
-    "users":[{
-          "name": "admin"
+  "hotel": [
+    {
+      "id": 1,
+      "title": "ekohotels.com",
+      "address": "Plot 1415 Adetokunbo Ademola Street, Victoria Island, Lagos Nigeria",
+      "website": "ekohotelsnigeria.com",
+      "phone": "08054631105",
+      "email": "info@ekohotels.com",
+      "city": "Lagos",
+      "information": " has rooms decorated with pictures of prominent figures in the world. The categories of rooms at November 5 include Single Room, Standard, Deluxe and Executive. Amenities that have been provided in the rooms include: a flat screen TV with satellite reception, a refrigerator, sofas, king-sized beds, study desks, wardrobes and en-suite bathrooms.",
+      "price": "13500",
+      "wifi": "yes",
+      "restaurant": "yes",
+      "light": "no",
+      "bar": "yes",
+      "gym": "yes",
+      "pool": "yes"
     }
-
-    ] 
-
-    
-  }
+  ],
+  "users": [
+    {
+      "name": "admin"
+    }
+  ]
+}

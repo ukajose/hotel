@@ -1,51 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hotel Listings</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bulma.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <div class="box">
+      <input type="text" id="search" placeholder="Search" />
+      <button id="submit" type="submit">submit</button>
+    </div>
 
-        <h1>Welcome</h1>
-        <form>
-            <label for="title">Hotel
-                <input type="text" id="hotel" />
-            </label> <br>
-    
-            <label for="amenities">Amenities
-                <input type="text" id="amenities" />
-            </label> <br>
-            <button type="submit">submit</button>
-        </form>
-    
-    <script src="./jquery.js"></script>
+    <script src="./js/jquery.js"></script>
     <script>
-        $(document).ready(function () {
-            $('form').on('submit', function(e){
-                e.preventDefault();
-                let title = $('#hotel').val();
-                let venue = $('#amenities').val();
-                
-                console.log(hotel);
-                console.log(amenities);
-               
-                $.ajax({
-                    url: "http://localhost:3000/hotel", success: function (result) {
-                        // $("#div1").html(result);
-                        console.log(result)
-                    },
-                    method: "POST",
-                    data: {
-                        hotel,
-                        amenities,
-                    }
-                });
-            })
-            
+      $(document).ready(function() {
+        $("#submit").on("click", function(e) {
+          e.preventDefault();
+          let search = $("#search").val();
+          console.log(search);
+
+          $.ajax({
+            method: "GET",
+            data: {
+                search  }
+
+            url: "http://localhost:3000/hotel",
+            success: function(result) {
+              // $("#div1").html(result);
+
+              for (let i = 0; i < result.length; i++) {
+                if (search === result[i].title || search === result[i].city) {
+                  console.log(result[i].id);
+                  console.log(result[i].title);
+                  console.log(result[i].address);
+                  console.log(result[i].price);
+                  console.log(result[i].wifi);
+                  console.log(result[i].bar);
+                  console.log(result[i].gym);
+                  console.log(result[i].pool);
+                }
+              }
+            }
+          });
         });
+      });
     </script>
-    
-</body>
+  </body>
 </html>
